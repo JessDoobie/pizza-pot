@@ -391,10 +391,10 @@ if (isGolden) {
   value = 15;
 }
 
-  // protect first two picks
-  if (revealed < 2 && value === "burnt") {
-    value = 5;
-  }
+ // protect first two picks
+// if (revealed < 2 && value === "burnt") {
+//   value = 5;
+// }
 
  slice.dataset.revealed = true;
  revealedMap[index] = true;

@@ -798,11 +798,11 @@ function showBoostMessage(text, type="normal") {
 
 function getBoostTier(amount){
 
-  if (amount >= 150 && amount <= 200) return "ultra";
-  if (amount >= 101 && amount <= 149) return "gold";
-  if (amount >= 50 && amount <= 100) return "premium";
+  if (amount >= 150) return "ultra";
+  if (amount >= 101) return "gold";
+  if (amount >= 50) return "premium";
 
-  return "pot"; // 💰 anything under 50
+  return "pot";
 }
 
 function processGift({ username, amount }) {

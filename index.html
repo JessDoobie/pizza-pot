@@ -601,12 +601,12 @@ else {
 
   }
 
- // update UI
+// update UI
 revealed++;
 document.getElementById("revealedCount").innerText = revealed;
 
 const rawWin = pot * (accumulated / 100);
-Math.floor(rawWin * PLAYER_PAYOUT_PERCENT)
+const payout = Math.floor(rawWin * PLAYER_PAYOUT_PERCENT);
 
 document.getElementById("percent").innerText = accumulated;
 document.getElementById("win").innerText = payout;

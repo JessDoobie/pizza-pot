@@ -14,9 +14,25 @@ body {
 
 .top-bar {
   display: flex;
-  justify-content: space-around;
-  padding: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  padding: 10px 10px 0 10px;
+
   font-size: 18px;
+}
+
+.stat-box {
+  background: rgba(255,255,255,0.06);
+
+  padding: 8px 14px;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(255,255,255,0.12);
+
+  backdrop-filter: blur(4px);
 }
 
 .board-wrapper {
@@ -227,10 +243,23 @@ button {
 <body>
 
 <div class="top-bar">
-  <div>Pot: <span id="pot">1000</span></div>
-  <div>Accumulated: <span id="percent">0</span>%</div>
-  <div>💰 Payout: <span id="win">0</span></div>
-  <div>🚀 Full Value: <span id="rawWin">0</span></div>
+
+  <div class="stat-box">
+    💰 Pot: <span id="pot">1000</span>
+  </div>
+
+  <div class="stat-box">
+    💵 Prize: <span id="win">0</span>
+  </div>
+
+  <div class="stat-box">
+    🍕 Accumulated: <span id="percent">0</span>%
+  </div>
+
+  <div class="stat-box">
+    🚀 Total Value: <span id="rawWin">0</span>
+  </div>
+
 </div>
 
 <div id="spotlightBanner" style="margin-top:10px;font-size:22px;font-weight:bold;">

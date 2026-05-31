@@ -288,7 +288,7 @@ button {
 
 
 <button onclick="pickSpotlight()" style="margin-top:10px;padding:10px 20px;font-size:18px;">
-🎲 Pick Spotlight Player
+🎲 Pick Spotlight Viewer
 </button>
 
 <div id="spotlightName" style="margin-top:10px;font-size:22px;"></div>
@@ -861,8 +861,11 @@ function handleGift(amount, username) {
   // ignore bad or zero values
   if (!amount || amount <= 0) return;
 
-  // 🧠 store gifters
+    // 🧠 store gifters
   if (!window.giftUsers) window.giftUsers = [];
+
+  // 🎯 future free-entry players
+  if (!window.chatPlayers) window.chatPlayers = [];
 
   if (!window.giftUsers.includes(username)) {
     window.giftUsers.push(username);
@@ -1040,11 +1043,16 @@ function pickSpotlight() {
 
   // use real gifters
   if (!window.giftUsers || window.giftUsers.length === 0) {
-    alert("No gifters yet!");
+    alert("No players joined yet!");
     return;
   }
 
-  const players = window.giftUsers;
+  const players = [
+  ...new Set([
+    ...(window.giftUsers || []),
+    ...(window.chatPlayers || [])
+  ])
+];
 
   const display = document.getElementById("spotlightName");
 

@@ -273,6 +273,12 @@ button {
 🎲 Pick Spotlight Viewer
 </button>
 
+<div class="state-panel">
+  Strikes: <span id="strikes">0</span> of 3 |
+  Burnt Left: <span id="burntRemaining">4</span> |
+  Slices Revealed: <span id="revealedCount">0</span>
+</div>
+
 <div class="board-wrapper" id="boardWrapper">
   <div class="board"></div>
   <svg id="pizzaBoard" width="420" height="420" viewBox="0 0 420 420">
@@ -294,12 +300,6 @@ button {
 </div>
 
 <div id="spotlightName" style="margin-top:10px;font-size:22px;"></div>
-
-<div class="state-panel">
-  Strikes: <span id="strikes">0</span> of 3 |
-  Burnt Left: <span id="burntRemaining">4</span> |
-  Slices Revealed: <span id="revealedCount">0</span>
-</div>
 
 <div class="offer-panel" id="offerPanel">
   <div>Chef Offer: <span id="offerValue"></span></div>

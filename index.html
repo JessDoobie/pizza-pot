@@ -781,11 +781,11 @@ function goldenBoost(username = "Someone") {
 
     showBoostMessage("⭐ Bonus Boost by " + username + "! +2%", "bonus");
 
-    const rawWin = pot * (accumulated / 100);
-    Math.floor(rawWin * PLAYER_PAYOUT_PERCENT)
+const rawWin = pot * (accumulated / 100);
+const payout = Math.floor(rawWin * PLAYER_PAYOUT_PERCENT);
 
-    document.getElementById("win").innerText = payout;
-    document.getElementById("rawWin").innerText = Math.floor(rawWin);
+document.getElementById("win").innerText = payout;
+document.getElementById("rawWin").innerText = Math.floor(rawWin);
 
     return;
   }

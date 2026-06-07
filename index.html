@@ -668,17 +668,12 @@ function showOffer() {
   offerActive = true;
   setSlicesClickable(false);
 
-  const rawWin = pot * (accumulated / 100);
-  Math.floor(rawWin * PLAYER_PAYOUT_PERCENT)
-  let offerMultiplier = 0.85;
+const rawWin = pot * (accumulated / 100);
+const payout = Math.floor(rawWin * PLAYER_PAYOUT_PERCENT);
 
-if (accumulated < 50) {
-  offerMultiplier = 0.95; // early game
-} else if (accumulated < 100) {
-  offerMultiplier = 0.9; // mid game
-} else {
-  offerMultiplier = 0.8; // late game
-}
+let offerMultiplier = 0.85;
+
+...
 
 const offer = Math.floor(payout * offerMultiplier);
   document.getElementById("offerValue").innerText = offer;
@@ -710,12 +705,11 @@ function endRound(reason) {
 
   gameActive = false;
   
-  const rawWin = pot * (accumulated / 100);
-  Math.floor(rawWin * PLAYER_PAYOUT_PERCENT)
+const rawWin = pot * (accumulated / 100);
+const payout = Math.floor(rawWin * PLAYER_PAYOUT_PERCENT);
 
-  document.getElementById("endMessage").innerText = "Round Complete";
-  document.getElementById("endDetails").innerText =
-    reason + " | Final: " + accumulated + "% | Payout: " + payout;
+document.getElementById("endDetails").innerText =
+  reason + " | Final: " + accumulated + "% | Payout: " + payout;
 
   document.getElementById("endOverlay").style.display = "flex";
 }

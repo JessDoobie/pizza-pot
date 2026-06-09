@@ -738,9 +738,9 @@ document.getElementById("win").innerText = payout;
 document.getElementById("rawWin").innerText = Math.floor(rawWin);
 
 return;
+}
 
-  const slices = document.querySelectorAll("#pizzaBoard path[data-index]");
-
+const slices = document.querySelectorAll("#pizzaBoard path[data-index]");
   let eligible = [];
 
   slices.forEach((slice, i) => {

@@ -728,9 +728,9 @@ function mediumBoost(username = "Someone") {
   accumulated += 1;
 }
 
-    showBoostMessage("🍕 Bonus Boost by " + username + "! +2%", "bonus");
+showBoostMessage("🍕 Bonus Boost by " + username + "! +2%", "bonus");
 
-    document.getElementById("percent").innerText = accumulated;
+document.getElementById("percent").innerText = accumulated;
 
 const rawWin = pot * (accumulated / 100);
 const payout = Math.floor(rawWin * PLAYER_PAYOUT_PERCENT);

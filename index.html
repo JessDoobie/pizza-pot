@@ -564,7 +564,7 @@ else if (value === "burnt") {
   document.getElementById("burntRemaining").innerText =
     values.filter((v, i) => !revealedMap[i] && v === "burnt").length;
 
-  if (strikes === 3) return endRound("3 Strikes!");
+  if (strikes === 4) return endRound("4 Strikes!");
 }
 
 // 🍕 NORMAL + PREMIUM

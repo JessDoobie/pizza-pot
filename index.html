@@ -648,8 +648,9 @@ if (revealed === 16) {
   return endRound("YOU CLEARED THE PIZZA! 🍕🔥");
 }
 
-if (!offerActive && revealed === 4) {
-    showOffer();
+if (!offerActive && !firstOfferShown && revealed >= 4) {
+  firstOfferShown = true;
+  showOffer();
 }
 
 }

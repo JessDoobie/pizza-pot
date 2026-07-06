@@ -647,8 +647,8 @@ if (revealed === 16) {
   return endRound("YOU CLEARED THE PIZZA! 🍕🔥");
 }
 
-if (!offerActive && revealed >= 4 && Math.random() < 0.25) {
-  showOffer();
+if (!offerActive && revealed === 4) {
+    showOffer();
 }
 
 }

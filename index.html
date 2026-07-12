@@ -1329,22 +1329,24 @@ socket.onopen = () => {
 };
 
 socket.onmessage = function(event) {
-  const data = JSON.parse(event.data);
+    const hubEvent = JSON.parse(event.data);
 
-  console.log("Received:", data);
+    console.log("Received:", hubEvent);
 
-  if (data.giftName) {
-    onFavoritedGift(data.username || "Someone", data.giftName);
-    return;
-  }
+    // Ignore the initial connection message
+    if (hubEvent.type === "connected") {
+        return;
+    }
 
-  if (data.amount) {
-    processGift({
-      username: data.username || "Someone",
-      amount: Number(data.amount)
-    });
-    return;
-  }
+    // Process Hub gift events
+    if (hubEvent.type === "gift") {
+        console.log("🍕 Pizza Pot received gift!");
+
+        onFavoritedGift(
+            hubEvent.data.username || "Someone",
+            hubEvent.data.giftName
+        );
+    }
 };
 
 </script>

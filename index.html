@@ -464,7 +464,14 @@ if (isGolden) {
 } else if (isPremium && !isBurnt) {
   value = 15;
 }
-
+console.log(
+  "Reveal",
+  index,
+  "| Original:", values[index],
+  "| Working:", value,
+  "| Revealed:", revealed
+);
+  
 if (revealed < 2 && value === "burnt") {
 
   const safeValues = [5, 10];

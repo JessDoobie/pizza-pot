@@ -1209,7 +1209,10 @@ revealedMap = new Array(16).fill(false);
     [values[i], values[j]] = [values[j], values[i]];
   }
 
+  console.log("Board Values:", values);
+  console.log("Burnt Count:", values.filter(v => v === "burnt").length);
 }
+
 
 function generatePepperoni() {
 

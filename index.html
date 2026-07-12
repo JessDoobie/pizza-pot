@@ -560,6 +560,13 @@ else if (value === "burnt") {
   svg.appendChild(text);
 
   strikes++;
+  console.log({
+  clickedIndex: index,
+  boardValue: values[index],
+  strikes,
+  burntRemaining: values.filter((v, i) => !revealedMap[i] && v === "burnt").length,
+  revealedMap: [...revealedMap]
+});
 
   document.getElementById("strikes").innerText = strikes;
   document.getElementById("burntRemaining").innerText =

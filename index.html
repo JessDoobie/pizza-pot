@@ -483,6 +483,8 @@ if (revealed < 2 && value === "burnt") {
 
   const safeValues = [5, 10];
   value = safeValues[Math.floor(Math.random() * safeValues.length)];
+
+  console.log("Board after protection:", values);
 }
 
 slice.dataset.revealed = true;

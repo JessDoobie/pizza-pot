@@ -479,12 +479,33 @@ console.log(
   "| Revealed:", revealed
 );
   
-if (revealed < 2 && value === "burnt") {
+if (revealed < 3 && value === "burnt") {
 
-  const safeValues = [5, 10];
-  value = safeValues[Math.floor(Math.random() * safeValues.length)];
+  // Find all hidden safe slices
+  const safeIndexes = values
+    .map((v, i) => ({ value: v, index: i }))
+    .filter(item =>
+      item.value !== "burnt" &&
+      !revealedMap[item.index]
+    );
 
-  console.log("Board after protection:", values);
+  // Pick one at random
+  if (safeIndexes.length > 0) {
+
+    const swap =
+      safeIndexes[Math.floor(Math.random() * safeIndexes.length)];
+
+    // Swap values
+    values[swap.index] = "burnt";
+    values[index] = swap.value;
+
+    // Update this reveal to use the new safe value
+    value = values[index];
+
+    console.log(
+      `🍕 Opening Phase swap: Slice ${index + 1} swapped with Slice ${swap.index + 1}`
+    );
+  }
 }
 
 slice.dataset.revealed = true;

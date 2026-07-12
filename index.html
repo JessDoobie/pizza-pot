@@ -441,11 +441,18 @@ function revealSlice(slice) {
 
   if (slice.dataset.revealed || offerActive) return;
 
-  const index = Number(slice.dataset.index);
-  let value = values[index];
+const index = Number(slice.dataset.index);
+let value = values[index];
 
+console.log({
+  sliceNumber: index + 1,
+  index,
+  originalValue: values[index],
+  workingValue: value,
+  revealedCount: revealed
+});
 
-  // remove golden preview icon
+// remove golden preview icon
   const goldenIcon = document.querySelector('[data-golden-icon="' + index + '"]');
   if (goldenIcon) goldenIcon.remove();
 

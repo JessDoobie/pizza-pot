@@ -481,8 +481,33 @@ console.log(
   
 if (revealed < 3 && value === "burnt") {
 
-  const safeValues = [5, 10];
-  value = safeValues[Math.floor(Math.random() * safeValues.length)];
+  // Find all hidden safe slices
+  const safeIndexes = values
+    .map((v, i) => i)
+    .filter(i =>
+      values[i] !== "burnt" &&
+      !revealedMap[i] &&
+      i !== index
+    );
+
+  if (safeIndexes.length > 0) {
+
+    // Pick a random hidden safe slice
+    const swapIndex =
+      safeIndexes[Math.floor(Math.random() * safeIndexes.length)];
+
+    // Swap the board values
+    [values[index], values[swapIndex]] =
+      [values[swapIndex], values[index]];
+
+    // Reload the value after the swap
+    value = values[index];
+
+    console.log(
+      `🍕 Opening swap: Slice ${index + 1} ⇄ Slice ${swapIndex + 1}`
+    );
+  }
+
 }
 
   // Pick one at random

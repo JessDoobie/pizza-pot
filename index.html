@@ -317,6 +317,7 @@ let accumulated = 0;
 let strikes = 0;
 let revealed = 0;
 let burntRemaining = 4;
+let lastOfferReveal = 1;
 let premiumIndex = null;
 let premiumActive = false;
 let premiumCount = 0;
@@ -693,8 +694,12 @@ if (revealed === 16) {
   return endRound("YOU CLEARED THE PIZZA! 🍕🔥");
 }
 
-if (!offerActive && !firstOfferShown && revealed >= 4) {
-  firstOfferShown = true;
+if (
+  !offerActive &&
+  revealed >= 4 &&
+  revealed >= lastOfferReveal + 3
+) {
+  lastOfferReveal = revealed;
   showOffer();
 }
 

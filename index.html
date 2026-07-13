@@ -694,6 +694,12 @@ if (revealed === 16) {
   return endRound("YOU CLEARED THE PIZZA! 🍕🔥");
 }
 
+console.log({
+  revealed,
+  lastOfferReveal,
+  offerActive
+});
+
 if (
   !offerActive &&
   revealed >= 4 &&

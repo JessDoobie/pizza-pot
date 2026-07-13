@@ -517,8 +517,12 @@ if (revealed < 3 && value === "burnt") {
 }
 
 slice.dataset.revealed = true;
- revealedMap[index] = true;
- slice.style.opacity = 0.85;
+revealedMap[index] = true;
+
+revealed++;
+document.getElementById("revealedCount").innerText = revealed;
+
+slice.style.opacity = 0.85;
 
   const peps = document.querySelectorAll('[data-slice="' + index + '"]');
   peps.forEach(p => p.style.opacity = 0);
@@ -686,8 +690,6 @@ else {
   }
 
 // update UI
-revealed++;
-document.getElementById("revealedCount").innerText = revealed;
 
 const rawWin = pot * (accumulated / 100);
 const payout = Math.floor(rawWin * PLAYER_PAYOUT_PERCENT);

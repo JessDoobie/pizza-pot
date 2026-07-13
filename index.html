@@ -481,13 +481,9 @@ console.log(
   
 if (revealed < 3 && value === "burnt") {
 
-  // Find all hidden safe slices
-  const safeIndexes = values
-    .map((v, i) => ({ value: v, index: i }))
-    .filter(item =>
-      item.value !== "burnt" &&
-      !revealedMap[item.index]
-    );
+  const safeValues = [5, 10];
+  value = safeValues[Math.floor(Math.random() * safeValues.length)];
+}
 
   // Pick one at random
   if (safeIndexes.length > 0) {

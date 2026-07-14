@@ -445,13 +445,6 @@ function revealSlice(slice) {
 const index = Number(slice.dataset.index);
 let value = values[index];
 
-console.log({
-  sliceNumber: index + 1,
-  index,
-  originalValue: values[index],
-  workingValue: value,
-  revealedCount: revealed
-});
 
 // remove golden preview icon
   const goldenIcon = document.querySelector('[data-golden-icon="' + index + '"]');
@@ -472,13 +465,6 @@ if (isGolden) {
 } else if (isPremium && !isBurnt) {
   value = 15;
 }
-console.log(
-  "Reveal",
-  index,
-  "| Original:", values[index],
-  "| Working:", value,
-  "| Revealed:", revealed
-);
   
 if (revealed < 3 && value === "burnt") {
 
@@ -499,19 +485,13 @@ if (revealed < 3 && value === "burnt") {
     // Swap the board values
     [values[index], values[swapIndex]] =
       [values[swapIndex], values[index]];
-    console.log(
-  "Burnt locations after swap:",
-  values
-    .map((v, i) => v === "burnt" ? i + 1 : null)
-    .filter(v => v !== null)
-);
+  
 
     // Reload the value after the swap
     value = values[index];
 
     console.log(
-      `🍕 Opening swap: Slice ${index + 1} ⇄ Slice ${swapIndex + 1}`
-    );
+    
   }
 
 }
@@ -609,13 +589,7 @@ else if (value === "burnt") {
   svg.appendChild(text);
 
   strikes++;
-  console.log({
-  clickedIndex: index,
-  boardValue: values[index],
-  strikes,
-  burntRemaining: values.filter((v, i) => !revealedMap[i] && v === "burnt").length,
-  revealedMap: [...revealedMap]
-});
+
 
   document.getElementById("strikes").innerText = strikes;
   document.getElementById("burntRemaining").innerText =
@@ -702,11 +676,6 @@ if (revealed === 16) {
   return endRound("YOU CLEARED THE PIZZA! 🍕🔥");
 }
 
-console.log({
-  revealed,
-  lastOfferReveal,
-  offerActive
-});
 
 if (
   !offerActive &&
@@ -1271,12 +1240,6 @@ revealedMap = new Array(16).fill(false);
   for (let i = values.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [values[i], values[j]] = [values[j], values[i]];
-  }
-
-  console.log("Board Values:", values);
-  console.log("Burnt Count:", values.filter(v => v === "burnt").length);
-  console.log("Board Length:", values.length);
-}
 
 
 function generatePepperoni() {

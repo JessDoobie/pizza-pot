@@ -740,13 +740,30 @@ function declineOffer() {
 function endRound(reason) {
 
   gameActive = false;
-  
-const rawWin = pot * (accumulated / 100);
-const payout = Math.floor(rawWin * PLAYER_PAYOUT_PERCENT);
 
-document.getElementById("endDetails").innerText =
-  reason + " | Final: " + accumulated + "% | Payout: " + payout;
+  const rawWin = pot * (accumulated / 100);
+  const payout = Math.floor(rawWin * PLAYER_PAYOUT_PERCENT);
 
+  let message;
+
+  if (reason === "4 Strikes!") {
+
+    message =
+      "🔥 PIZZA BURNED! 🍕\n" +
+      "You reached " + accumulated + "%\n" +
+      "You would have won " + payout + " coins.\n\n" +
+      "Final Prize: 0";
+
+  } else {
+
+    message =
+      reason +
+      " | Final: " + accumulated +
+      "% | Payout: " + payout;
+
+  }
+
+  document.getElementById("endDetails").innerText = message;
   document.getElementById("endOverlay").style.display = "flex";
 }
 

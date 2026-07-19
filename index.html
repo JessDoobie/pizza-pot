@@ -921,7 +921,7 @@ function handleGift(amount, username) {
   // ignore bad or zero values
   if (!amount || amount <= 0) return;
 
-    // 🧠 store gifters
+  // 🧠 store gifters
   if (!window.giftUsers) window.giftUsers = [];
 
   // 🎯 future free-entry players
@@ -931,8 +931,9 @@ function handleGift(amount, username) {
     window.giftUsers.push(username);
   }
 
-  // 🎯 spotlight the gifter
-  document.getElementById("spotlightName").innerText = username;
+  // 🎁 Update Latest Boost panel
+  document.getElementById("latestBoostUser").innerText = username;
+  document.getElementById("latestBoostAction").innerText = "";
 
   if (!gameActive) return;
 
@@ -965,35 +966,50 @@ function runBoostQueue() {
   boostRunning = true;
 
   const boost = boostQueue.shift();
-
-  const {amount, username} = boost;
+  const { amount, username } = boost;
 
   const tier = getBoostTier(amount);
 
-if (tier === "pot") {
+  if (tier === "pot") {
 
-  pot += amount;
+    pot += amount;
 
-  showBoostMessage("💰 " + username + " added " + amount + " to the pot!");
+    document.getElementById("latestBoostUser").innerText = username;
+    document.getElementById("latestBoostAction").innerText = "🪙 Added to Pot";
 
-  document.getElementById("pot").innerText = pot;
+    showBoostMessage("💰 " + username + " added " + amount + " to the pot!");
 
-}
-else if (tier === "premium") {
-  mediumBoost(username);
-}
-else if (tier === "gold") {
-  goldenBoost(username);
-}
-else if (tier === "ultra") {
-  ultraBoost(username);
-}
+    document.getElementById("pot").innerText = pot;
+
+  }
+  else if (tier === "premium") {
+
+    document.getElementById("latestBoostUser").innerText = username;
+    document.getElementById("latestBoostAction").innerText = "🍕 Premium Slice Booster";
+
+    mediumBoost(username);
+
+  }
+  else if (tier === "gold") {
+
+    document.getElementById("latestBoostUser").innerText = username;
+    document.getElementById("latestBoostAction").innerText = "⭐ Golden Slice Booster";
+
+    goldenBoost(username);
+
+  }
+  else if (tier === "ultra") {
+
+    document.getElementById("latestBoostUser").innerText = username;
+    document.getElementById("latestBoostAction").innerText = "🔥 Burnt Slice Restored";
+
+    ultraBoost(username);
+
+  }
 
   setTimeout(() => {
-
     boostRunning = false;
     runBoostQueue();
-
   }, 500);
 
 }
@@ -1101,20 +1117,23 @@ setTimeout(() => {
 
 function pickSpotlight() {
 
-  // use real gifters
-  if (!window.giftUsers || window.giftUsers.length === 0) {
+  // Use everyone who has joined
+  if (!window.giftUsers) window.giftUsers = [];
+  if (!window.chatPlayers) window.chatPlayers = [];
+
+  const players = [
+    ...new Set([
+      ...window.giftUsers,
+      ...window.chatPlayers
+    ])
+  ];
+
+  if (players.length === 0) {
     alert("No players joined yet!");
     return;
   }
 
-  const players = [
-  ...new Set([
-    ...(window.giftUsers || []),
-    ...(window.chatPlayers || [])
-  ])
-];
-
-  const display = document.getElementById("spotlightName");
+  const banner = document.getElementById("spotlightBanner");
 
   let spins = 0;
   let currentPick = "";
@@ -1122,21 +1141,23 @@ function pickSpotlight() {
   const spin = setInterval(() => {
 
     currentPick = players[Math.floor(Math.random() * players.length)];
-    display.innerText = "🎲 " + currentPick;
+
+    // Show the spinning names
+    banner.innerText = "🎲 " + currentPick;
 
     spins++;
 
-    if (spins > 15) {
+    if (spins >= 15) {
 
       clearInterval(spin);
 
-      // final selection
-      document.getElementById("spotlightBanner").innerText =
-        "🎯 Spotlight Player: " + currentPick;
+      // Final winner
+      banner.innerText = "🎯 Spotlight Player: " + currentPick;
 
     }
 
   }, 80);
+
 }
 
 function ultraBoost(username = "Someone") {

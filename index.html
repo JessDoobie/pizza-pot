@@ -273,6 +273,19 @@ button {
 🎲 Pick Player
 </button>
 
+<div id="latestBoostPanel" style="margin-top:12px;">
+    <div style="font-size:20px;font-weight:bold;">
+        🎁 Latest Boost
+    </div>
+
+    <div id="latestBoostUser" style="font-size:22px;">
+        Waiting...
+    </div>
+
+    <div id="latestBoostAction" style="font-size:18px;color:#ffd86b;">
+    </div>
+</div>
+
 <div class="state-panel">
   ☠️ Strikes: <span id="strikes">0</span>/4
   &nbsp; | &nbsp;
@@ -283,25 +296,25 @@ button {
 
 <div class="board-wrapper" id="boardWrapper">
   <div class="board"></div>
+
   <svg id="pizzaBoard" width="420" height="420" viewBox="0 0 420 420">
-<defs>
+    <defs>
 
-  <!-- 🔥 Burnt gradient -->
-  <radialGradient id="burntTexture" cx="50%" cy="50%" r="75%">
-  <stop offset="0%" stop-color="#6b4f3a"/>
-  <stop offset="30%" stop-color="#4a3728"/>
-  <stop offset="60%" stop-color="#2a1f18"/>
-  <stop offset="85%" stop-color="#14110f"/>
-  <stop offset="100%" stop-color="#050505"/>
-</radialGradient>
+      <!-- 🔥 Burnt gradient -->
+      <radialGradient id="burntTexture" cx="50%" cy="50%" r="75%">
+        <stop offset="0%" stop-color="#6b4f3a"/>
+        <stop offset="30%" stop-color="#4a3728"/>
+        <stop offset="60%" stop-color="#2a1f18"/>
+        <stop offset="85%" stop-color="#14110f"/>
+        <stop offset="100%" stop-color="#050505"/>
+      </radialGradient>
 
+    </defs>
 
-</defs>
-<g id="pepperoniLayer"></g>
-</svg>
+    <g id="pepperoniLayer"></g>
+
+  </svg>
 </div>
-
-<div id="spotlightName" style="margin-top:10px;font-size:22px;"></div>
 
 <div class="offer-panel" id="offerPanel">
   <div>Chef Offer: <span id="offerValue"></span></div>

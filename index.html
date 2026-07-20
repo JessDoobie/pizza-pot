@@ -265,26 +265,13 @@ button {
 
 </div>
 
-<div id="spotlightBanner" style="margin-top:10px;font-size:22px;font-weight:bold;">
+<div id="spotlightBanner" style="margin-top:8px;font-size:18px;font-weight:bold;">
 🎯 Spotlight Player: —
 </div>
 
 <button onclick="pickSpotlight()" style="margin-top:4px;padding:6px 12px;font-size:14px;">
 🎲 Pick Player
 </button>
-
-<div id="latestBoostPanel" style="margin-top:12px;">
-    <div style="font-size:20px;font-weight:bold;">
-        🎁 Latest Boost
-    </div>
-
-    <div id="latestBoostUser" style="font-size:22px;">
-        Waiting...
-    </div>
-
-    <div id="latestBoostAction" style="font-size:18px;color:#ffd86b;">
-    </div>
-</div>
 
 <div class="state-panel">
   ☠️ Strikes: <span id="strikes">0</span>/4
@@ -940,9 +927,8 @@ function handleGift(amount, username) {
     window.giftUsers.push(username);
   }
 
-  // 🎁 Update Latest Boost panel
-  document.getElementById("latestBoostUser").innerText = username;
-  document.getElementById("latestBoostAction").innerText = "";
+ // 🎁 Update Latest Boost panel
+document.getElementById("latestBoostText").innerText = username;
 
   if (!gameActive) return;
 
@@ -983,8 +969,8 @@ function runBoostQueue() {
 
     pot += amount;
 
-    document.getElementById("latestBoostUser").innerText = username;
-    document.getElementById("latestBoostAction").innerText = "🪙 Added to Pot";
+document.getElementById("latestBoostText").innerText =
+    username + " 🪙 Added to Pot";
 
     showBoostMessage("💰 " + username + " added " + amount + " to the pot!");
 
@@ -993,24 +979,24 @@ function runBoostQueue() {
   }
   else if (tier === "premium") {
 
-    document.getElementById("latestBoostUser").innerText = username;
-    document.getElementById("latestBoostAction").innerText = "🍕 Premium Slice Booster";
+document.getElementById("latestBoostText").innerText =
+    username + " 🍕 Premium Slice Booster";
 
     mediumBoost(username);
 
   }
   else if (tier === "gold") {
 
-    document.getElementById("latestBoostUser").innerText = username;
-    document.getElementById("latestBoostAction").innerText = "⭐ Golden Slice Booster";
+document.getElementById("latestBoostText").innerText =
+    username + " ⭐ Golden Slice Booster";
 
     goldenBoost(username);
 
   }
   else if (tier === "ultra") {
 
-    document.getElementById("latestBoostUser").innerText = username;
-    document.getElementById("latestBoostAction").innerText = "🔥 Burnt Slice Restored";
+document.getElementById("latestBoostText").innerText =
+    username + " 🔥 Burnt Slice Restored";
 
     ultraBoost(username);
 

@@ -326,84 +326,63 @@ transform: scale(1.03, 1.01) rotate(0.5deg);
 
 <div class="offer-panel" id="offerPanel">
 
-    <div style="font-size:22px;font-weight:bold;color:#FFD700;margin-bottom:12px;">
-    👨‍🍳 CHEF'S OFFER
-</div>
-
-<div style="
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    margin-bottom:14px;">
-
-    <div style="width:48%;">
-        <div style="font-size:16px;">
-            Current Prize
-        </div>
-
-        <div style="font-size:18px;">
-            💰
-        </div>
-
-        <div style="
-            font-size:28px;
-            font-weight:bold;
-            line-height:1;">
-            <span id="prize">0</span>
-        </div>
+    <div style="font-size:18px;font-weight:bold;color:#FFD700;margin-bottom:8px;">
+        👨‍🍳 CHEF'S OFFER
     </div>
 
-    <div style="width:48%;">
-        <div style="font-size:16px;">
-            Chef's Offer
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+
+        <div style="width:48%;text-align:center;">
+            <div style="font-size:14px;color:#ddd;">
+                Current Prize
+            </div>
+
+            <div style="font-size:22px;font-weight:bold;line-height:1.2;">
+                💰 <span id="prize">0</span>
+            </div>
         </div>
 
-        <div style="font-size:18px;">
-            💰
+        <div style="width:48%;text-align:center;">
+            <div style="font-size:14px;color:#ddd;">
+                Chef's Offer
+            </div>
+
+            <div style="font-size:22px;font-weight:bold;line-height:1.2;">
+                💰 <span id="offerValue"></span>
+            </div>
         </div>
 
-        <div style="
-            font-size:28px;
-            font-weight:bold;
-            line-height:1;">
-            <span id="offerValue"></span>
-        </div>
     </div>
 
-</div>
+    <hr style="border:1px solid rgba(255,255,255,.20);margin:8px 0;">
 
-<hr style="border:1px solid rgba(255,255,255,.20);margin:10px 0;">
+    <div style="font-size:16px;color:#FFD700;font-weight:bold;margin:10px 0 14px 0;">
+        ⏳ <span id="timer">12</span> Seconds
+    </div>
 
-<div style="
-    font-size:18px;
-    color:#FFD700;
-    font-weight:bold;
-    margin-bottom:16px;">
-    ⏳ <span id="timer">12</span> Seconds
-</div>
+    <div style="display:flex;justify-content:center;gap:12px;">
 
-<div style="
-    display:flex;
-    justify-content:center;
-    gap:18px;">
+        <button onclick="acceptOffer()"
+                style="
+                    padding:8px 18px;
+                    font-size:14px;
+                    font-weight:bold;
+                    border-radius:8px;
+                    cursor:pointer;">
+            💰 TAKE
+        </button>
 
-    <button onclick="acceptOffer()"
-        style="
-        padding:10px 22px;
-        border-radius:10px;
-        font-size:16px;
-        font-weight:bold;">
-        💰 TAKE
-    </button>
+        <button onclick="declineOffer()"
+                style="
+                    padding:8px 18px;
+                    font-size:14px;
+                    font-weight:bold;
+                    border-radius:8px;
+                    cursor:pointer;">
+            🎲 RISK
+        </button>
 
-    <button onclick="declineOffer()"
-        style="
-        padding:10px 22px;
-        border-radius:10px;
-        font-size:16px;
-        font-weight:bold;">
-        🎲 RISK
-    </button>
+    </div>
 
 </div>
 

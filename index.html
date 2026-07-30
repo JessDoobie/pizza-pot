@@ -157,31 +157,32 @@ transform: scale(1.03, 1.01) rotate(0.5deg);
   font-size: 14px;
 }
 
-.offer-panel {
-    display: none;
-    position: fixed;
+.offer-panel{
+    display:none;
+    position:fixed;
 
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top:40%;
+    left:50%;
+    transform:translate(-50%,-50%);
 
-    width: 360px;
-    max-width: 90%;
-    min-height: 215px;
+    width:360px;
+    max-width:90%;
 
-    background: linear-gradient(#55331f, #352014);
+    background:linear-gradient(180deg,#5d3a21 0%,#3b2416 100%);
 
-    border: 4px solid #FFD700;
-    border-radius: 18px;
+    border:4px solid #FFD700;
+    border-radius:16px;
 
-    padding: 14px 22px;
+    padding:14px 20px;
 
-    text-align: center;
-    color: white;
+    color:#fff;
+    text-align:center;
 
-    box-shadow: 0 0 35px rgba(0,0,0,.75);
+    box-shadow:
+        0 0 18px rgba(255,215,0,.35),
+        0 12px 30px rgba(0,0,0,.65);
 
-    z-index: 9999;
+    z-index:9999;
 }
 
 .slice-pop {
@@ -326,59 +327,108 @@ transform: scale(1.03, 1.01) rotate(0.5deg);
 
 <div class="offer-panel" id="offerPanel">
 
-    <div style="font-size:18px;font-weight:bold;color:#FFD700;margin-bottom:8px;">
+    <div style="
+        font-size:20px;
+        font-weight:bold;
+        color:#FFD700;
+        letter-spacing:1px;
+        margin-bottom:10px;">
         👨‍🍳 CHEF'S OFFER
     </div>
 
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+    <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:10px;">
 
-        <div style="width:48%;text-align:center;">
-            <div style="font-size:14px;color:#ddd;">
+        <div style="width:48%;">
+
+            <div style="
+                font-size:13px;
+                color:#DDD;
+                margin-bottom:4px;">
                 Current Prize
             </div>
 
-            <div style="font-size:22px;font-weight:bold;line-height:1.2;">
+            <div style="
+                font-size:26px;
+                font-weight:bold;
+                color:#FFD700;">
                 💰 <span id="prize">0</span>
             </div>
+
         </div>
 
-        <div style="width:48%;text-align:center;">
-            <div style="font-size:14px;color:#ddd;">
+        <div style="
+            width:2px;
+            height:48px;
+            background:rgba(255,255,255,.20);">
+        </div>
+
+        <div style="width:48%;">
+
+            <div style="
+                font-size:13px;
+                color:#DDD;
+                margin-bottom:4px;">
                 Chef's Offer
             </div>
 
-            <div style="font-size:22px;font-weight:bold;line-height:1.2;">
+            <div style="
+                font-size:26px;
+                font-weight:bold;
+                color:#8BFF7D;">
                 💰 <span id="offerValue"></span>
             </div>
+
         </div>
 
     </div>
 
-    <hr style="border:1px solid rgba(255,255,255,.20);margin:8px 0;">
-
-    <div style="font-size:16px;color:#FFD700;font-weight:bold;margin:10px 0 14px 0;">
-        ⏳ <span id="timer">12</span> Seconds
+    <div style="
+        border-top:1px solid rgba(255,255,255,.20);
+        margin:8px 0 10px 0;">
     </div>
 
-    <div style="display:flex;justify-content:center;gap:12px;">
+    <div style="
+        font-size:15px;
+        color:#FFD700;
+        font-weight:bold;
+        margin-bottom:12px;">
+        ⏳ <span id="timer">12</span> Seconds Remaining
+    </div>
+
+    <div style="
+        display:flex;
+        justify-content:center;
+        gap:14px;">
 
         <button onclick="acceptOffer()"
-                style="
-                    padding:8px 18px;
-                    font-size:14px;
-                    font-weight:bold;
-                    border-radius:8px;
-                    cursor:pointer;">
+            style="
+                min-width:120px;
+                padding:8px 0;
+                border:none;
+                border-radius:8px;
+                background:#3BAE49;
+                color:white;
+                font-size:14px;
+                font-weight:bold;
+                cursor:pointer;">
             💰 TAKE
         </button>
 
         <button onclick="declineOffer()"
-                style="
-                    padding:8px 18px;
-                    font-size:14px;
-                    font-weight:bold;
-                    border-radius:8px;
-                    cursor:pointer;">
+            style="
+                min-width:120px;
+                padding:8px 0;
+                border:none;
+                border-radius:8px;
+                background:#C93C3C;
+                color:white;
+                font-size:14px;
+                font-weight:bold;
+                cursor:pointer;">
             🎲 RISK
         </button>
 

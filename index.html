@@ -754,6 +754,7 @@ function showOffer() {
 
 const rawWin = pot * (accumulated / 100);
 const payout = Math.floor(rawWin * PLAYER_PAYOUT_PERCENT);
+document.getElementById("prize").innerText = payout;
 
 let offerMultiplier = 0.85;
 

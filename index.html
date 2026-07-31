@@ -460,6 +460,23 @@ let revealedMap = new Array(16).fill(false);
 let values = [];
 const PLAYER_PAYOUT_PERCENT = 1.00;
 
+const offerBell = new Audio("assets/sounds/offerBell.mp3");
+
+function playOfferBell() {
+    offerBell.currentTime = 0;
+    offerBell.play();
+
+    setTimeout(() => {
+        offerBell.currentTime = 0;
+        offerBell.play();
+    }, 300);
+
+    setTimeout(() => {
+        offerBell.currentTime = 0;
+        offerBell.play();
+    }, 600);
+}  
+
 /* 🎁 FAVORITED GIFT VALUE MAP */
 const giftValues = {
 
@@ -826,6 +843,7 @@ function setSlicesClickable(enabled) {
 function showOffer() {
   document.getElementById("offerPanel").style.display = "block";
   offerActive = true;
+  playOfferBell();
   setSlicesClickable(false);
 
 const rawWin = pot * (accumulated / 100);

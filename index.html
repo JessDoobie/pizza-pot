@@ -463,19 +463,13 @@ const PLAYER_PAYOUT_PERCENT = 1.00;
 const offerBell = new Audio("assets/sounds/offerBell.mp3");
 
 function playOfferBell() {
-    offerBell.currentTime = 0;
-    offerBell.play();
-
-    setTimeout(() => {
-        offerBell.currentTime = 0;
-        offerBell.play();
-    }, 300);
-
-    setTimeout(() => {
-        offerBell.currentTime = 0;
-        offerBell.play();
-    }, 600);
-}  
+    [0, 300, 600].forEach(delay => {
+        setTimeout(() => {
+            const bell = new Audio("assets/sounds/offerBell.mp3");
+            bell.play();
+        }, delay);
+    });
+}
 
 /* 🎁 FAVORITED GIFT VALUE MAP */
 const giftValues = {

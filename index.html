@@ -470,12 +470,8 @@ const PLAYER_PAYOUT_PERCENT = 1.00;
 const offerBell = new Audio("assets/sounds/offerBell.mp3");
 
 function playOfferBell() {
-    [0, 300, 600].forEach(delay => {
-        setTimeout(() => {
-            const bell = new Audio("assets/sounds/offerBell.mp3");
-            bell.play();
-        }, delay);
-    });
+    offerBell.currentTime = 0;
+    offerBell.play();
 }
 
 /* 🎁 FAVORITED GIFT VALUE MAP */
@@ -844,7 +840,9 @@ function setSlicesClickable(enabled) {
 function showOffer() {
   document.getElementById("offerPanel").style.display = "block";
   offerActive = true;
+  
   playOfferBell();
+  
   setSlicesClickable(false);
 
 const rawWin = pot * (accumulated / 100);

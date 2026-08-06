@@ -442,8 +442,6 @@ transform: scale(1.03, 1.01) rotate(0.5deg);
     </div>
 
 </div>
-
-</div>
 <script>
 let firstOfferShown = false;
 let pot = 1000;
@@ -469,7 +467,7 @@ const PLAYER_PAYOUT_PERCENT = 1.00;
 
 const offerBell = new Audio("assets/sounds/offerBell.mp3");
 
-ffunction playOfferBell() {
+function playOfferBell() {
     console.log("🔔 playOfferBell() called");
 
     offerBell.currentTime = 0;

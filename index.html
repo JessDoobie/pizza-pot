@@ -1566,7 +1566,7 @@ socket.onmessage = function(event) {
         return;
     }
 
-    // Process Hub gift events
+    // 🎁 Gift from Hub
     if (hubEvent.type === "gift") {
 
         console.log("🍕 Pizza Pot received gift!");
@@ -1575,6 +1575,31 @@ socket.onmessage = function(event) {
             hubEvent.data.username || "Someone",
             hubEvent.data.giftName
         );
+
+        return;
+
+    }
+
+    // 🎲 Random player selected by Hub
+    if (hubEvent.type === "randomPlayer") {
+
+        if (!hubEvent.player) {
+
+            alert("No viewers are currently online.");
+
+            return;
+
+        }
+
+        const banner = document.getElementById("spotlightBanner");
+
+        banner.innerText =
+            "🎯 Spotlight Player: " +
+            hubEvent.player.displayName;
+
+        console.log("🎯 Spotlight:", hubEvent.player);
+
+        return;
 
     }
 

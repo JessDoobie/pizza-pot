@@ -260,17 +260,17 @@ transform: scale(1.03, 1.01) rotate(0.5deg);
 
 <div class="top-bar">
 
-  <div class="stat-box">
-    💰 Pot: <span id="pot">1000</span>
-  </div>
+<div class="stat-box" style="font-size:24px;font-weight:bold;">
+    🍕 Pot: <span id="pot">1000</span>
+</div>
 
-  <div class="stat-box">
+<div class="stat-box" style="font-size:24px;font-weight:bold;">
     💵 Prize: <span id="win">0</span>
-  </div>
+</div>
 
-  <div class="stat-box">
-    🍕 Accumulated: <span id="percent">0</span>%
-  </div>
+<div class="stat-box" style="font-size:24px;font-weight:bold;">
+    📈 Win %: <span id="percent">0</span>%
+</div>
 
  <div style="display:none;">
     <span id="rawWin">0</span>
@@ -282,8 +282,15 @@ transform: scale(1.03, 1.01) rotate(0.5deg);
 🎯 Spotlight Player: —
 </div>
 
-<button onclick="pickSpotlight()" style="margin-top:4px;padding:6px 12px;font-size:14px;">
-🎲 Pick Player
+<button
+    onclick="pickSpotlight()"
+    style="
+        margin-top:6px;
+        padding:5px 10px;
+        font-size:12px;
+        border-radius:8px;
+        cursor:pointer;">
+    🎲 Pick Player
 </button>
 
 <div class="state-panel">

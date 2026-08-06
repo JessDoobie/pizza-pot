@@ -1542,10 +1542,14 @@ socket.onopen = () => {
 
     console.log("Connected to server");
 
-    socket.send(JSON.stringify({
+    const message = {
         type: "hello",
         game: "pizza"
-    }));
+    };
+
+    console.log("Sending:", message);
+
+    socket.send(JSON.stringify(message));
 
 };
 

@@ -1248,46 +1248,10 @@ setTimeout(() => {
 
 function pickSpotlight() {
 
-  // Use everyone who has joined
-  if (!window.giftUsers) window.giftUsers = [];
-  if (!window.chatPlayers) window.chatPlayers = [];
-
-  const players = [
-    ...new Set([
-      ...window.giftUsers,
-      ...window.chatPlayers
-    ])
-  ];
-
-  if (players.length === 0) {
-    alert("No players joined yet!");
-    return;
-  }
-
-  const banner = document.getElementById("spotlightBanner");
-
-  let spins = 0;
-  let currentPick = "";
-
-  const spin = setInterval(() => {
-
-    currentPick = players[Math.floor(Math.random() * players.length)];
-
-    // Show the spinning names
-    banner.innerText = "🎲 " + currentPick;
-
-    spins++;
-
-    if (spins >= 15) {
-
-      clearInterval(spin);
-
-      // Final winner
-      banner.innerText = "🎯 Spotlight Player: " + currentPick;
-
-    }
-
-  }, 80);
+    socket.send(JSON.stringify({
+        type: "pickRandomPlayer",
+        game: "pizza"
+    }));
 
 }
 

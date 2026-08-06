@@ -1543,8 +1543,10 @@ socket.onopen = () => {
     console.log("Connected to server");
 
     const message = {
-        type: "hello",
-        game: "pizza"
+        type: "registerPlayer",
+        game: "pizza",
+        username: "EnjoyaDoobie420",
+        displayName: "EnjoyaDoobie420"
     };
 
     console.log("Sending:", message);

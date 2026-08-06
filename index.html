@@ -1539,10 +1539,18 @@ function generatePepperoni() {
 const socket = new WebSocket("ws://localhost:8080");
 
 socket.onopen = () => {
+
     console.log("Connected to server");
+
+    socket.send(JSON.stringify({
+        type: "hello",
+        game: "pizza"
+    }));
+
 };
 
 socket.onmessage = function(event) {
+
     const hubEvent = JSON.parse(event.data);
 
     console.log("Received:", hubEvent);
@@ -1554,14 +1562,18 @@ socket.onmessage = function(event) {
 
     // Process Hub gift events
     if (hubEvent.type === "gift") {
+
         console.log("🍕 Pizza Pot received gift!");
 
         onFavoritedGift(
             hubEvent.data.username || "Someone",
             hubEvent.data.giftName
         );
+
     }
+
 };
+</script>
 
 </script>
 

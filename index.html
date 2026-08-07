@@ -1530,46 +1530,44 @@ socket.onmessage = function(event) {
         return;
     }
 
-    // 🎁 Gift from Hub
-    if (hubEvent.type === "gift") {
+    // 🎁 Standard Hub Event
+if (hubEvent.type === "gift") {
 
-        console.log("🍕 Pizza Pot received gift!");
+    console.log("🍕 Hub Gift:", hubEvent);
 
-        onFavoritedGift(
-            hubEvent.data.username || "Someone",
-            hubEvent.data.giftName
-        );
+    onFavoritedGift(
+        hubEvent.data?.username || "Someone",
+        hubEvent.data?.giftName || "Gift"
+    );
 
-        return;
+    return;
 
-    }
+}
 
-    // 🎲 Random player selected by Hub
-    if (hubEvent.type === "randomPlayer") {
+    // 🎲 Spotlight player selected by Hub
+if (hubEvent.type === "randomPlayer") {
 
-        console.log("Eligible Players:", hubEvent.players);
+    console.log("🎲 Random Player Event:", hubEvent);
 
-        if (!hubEvent.player) {
+    if (!hubEvent.player) {
 
-            alert("No viewers are currently online.");
-
-            return;
-
-        }
-
-        const banner = document.getElementById("spotlightBanner");
-
-        banner.innerText =
-            "🎯 Spotlight Player: " +
-            hubEvent.player.displayName;
-
-        console.log("🎯 Spotlight:", hubEvent.player);
+        alert("No viewers are currently online.");
 
         return;
 
     }
 
-};
+    const banner = document.getElementById("spotlightBanner");
+
+    banner.innerText =
+        "🎯 Spotlight Player: " +
+        (hubEvent.player.displayName || hubEvent.player.username);
+
+    console.log("🎯 Spotlight:", hubEvent.player);
+
+    return;
+
+}
 </script>
 
 </script>

@@ -1547,6 +1547,8 @@ socket.onmessage = function(event) {
     // 🎲 Random player selected by Hub
     if (hubEvent.type === "randomPlayer") {
 
+        console.log("Eligible Players:", hubEvent.players);
+
         if (!hubEvent.player) {
 
             alert("No viewers are currently online.");
